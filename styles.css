@@ -1,0 +1,339 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+html {
+  background: #121212;
+  scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #121212;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, button, a, p, span, input, textarea, select {
+  font-family: 'Poppins', sans-serif;
+}
+
+button, a {
+  cursor: pointer;
+}
+
+button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 2px solid #FEDE58;
+  outline-offset: 3px;
+}
+
+/* ---------- Navigation ---------- */
+.nav-links {
+  display: none;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-link {
+  position: relative;
+  padding: 31px 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 1;
+  transition: opacity 0.25s ease, color 0.25s ease;
+  background: none;
+  border: none;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: #ffffff;
+}
+
+.nav-link:hover {
+  opacity: 1;
+}
+
+.nav-link.active {
+  opacity: 1;
+}
+
+/* Animasi halus garis kuning navbar */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2.5px;
+  background: #FEDE58;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+  opacity: 0;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(0.4);
+  opacity: 0.5;
+}
+
+.nav-link.active::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+@media (min-width: 768px) {
+  .nav-links {
+    display: flex;
+  }
+}
+
+/* ---------- Shared Typographic Classes ---------- */
+.eyebrow {
+  color: #FEDE58;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
+}
+
+.section-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(2.4rem, 4.5vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -.03em;
+  color: #fff;
+}
+
+::selection {
+  background: #FEDE58;
+  color: #121212;
+}
+
+/* ---------- SVG Icons inside buttons/links ---------- */
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* ---------- Mobile menu transition ---------- */
+#mobile-nav {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease;
+}
+#mobile-nav.open {
+  max-height: 500px;
+}
+
+/* ---------- Blog filter active ---------- */
+.filter-btn.active {
+  background: #FEDE58;
+  color: #000;
+  border-color: #FEDE58;
+}
+
+/* ═══════════ SMOOTH ANIMATIONS ═══════════ */
+/* Smooth page entrance on load & navigation */
+#main-content {
+  animation: pageFadeIn 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header smooth entrance & scroll shadow */
+header {
+  animation: headerDrop 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+header.scrolled {
+  background-color: rgba(18, 18, 18, 0.98) !important;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes headerDrop {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hero background image smooth entrance */
+section.relative img.object-cover {
+  animation:
+    heroImageSmooth 1.4s cubic-bezier(0.16, 1, 0.3, 1) both,
+    heroKenBurns 24s ease-in-out 1.4s infinite alternate;
+  will-change: transform;
+}
+
+/* Zoom sangat pelan pada gambar hero agar terasa "hidup" */
+@keyframes heroKenBurns {
+  from { transform: scale(1) translate3d(0, 0, 0); }
+  to   { transform: scale(1.08) translate3d(-1%, -1%, 0); }
+}
+
+@keyframes heroImageSmooth {
+  from {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Card hover animation */
+article {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+}
+
+article:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+}
+
+/* Button & link transitions */
+button, a {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.2s ease,
+              background-color 0.2s ease,
+              color 0.2s ease,
+              border-color 0.2s ease;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+/* ═══════════ SCROLL REVEAL (muncul halus saat di-scroll) ═══════════ */
+.reveal {
+  opacity: 0;
+}
+
+.reveal.in-view {
+  opacity: 1;
+  /* fill-mode "backwards": setelah selesai elemen kembali normal,
+     sehingga efek hover (card naik, dll) tetap berfungsi */
+  animation: revealUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms) backwards;
+}
+
+.reveal-left.in-view { animation-name: revealLeft; }
+.reveal-fade.in-view { animation-name: revealFade; animation-duration: 1.1s; }
+
+@keyframes revealUp {
+  from { opacity: 0; transform: translate3d(0, 28px, 0); }
+  to   { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes revealLeft {
+  from { opacity: 0; transform: translate3d(-40px, 0, 0); }
+  to   { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes revealFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Gambar besar "mengendap" dari zoom ke ukuran normal saat muncul */
+.reveal-media {
+  overflow: hidden;
+}
+
+.reveal-media img {
+  transform: scale(1.14);
+  transition: transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-media.in-view img {
+  transform: scale(1);
+}
+
+/* ═══════════ NAVBAR & MENU ═══════════ */
+.nav-link {
+  animation: navItemIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+.nav-link:nth-child(1) { animation-delay: 0.25s; }
+.nav-link:nth-child(2) { animation-delay: 0.33s; }
+.nav-link:nth-child(3) { animation-delay: 0.41s; }
+.nav-link:nth-child(4) { animation-delay: 0.49s; }
+
+@keyframes navItemIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Item menu mobile muncul berurutan saat menu dibuka */
+#mobile-nav.open button {
+  animation: menuItemIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+#mobile-nav.open button:nth-child(1) { animation-delay: 0.05s; }
+#mobile-nav.open button:nth-child(2) { animation-delay: 0.10s; }
+#mobile-nav.open button:nth-child(3) { animation-delay: 0.15s; }
+#mobile-nav.open button:nth-child(4) { animation-delay: 0.20s; }
+
+@keyframes menuItemIn {
+  from { opacity: 0; transform: translateX(-14px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Ikon hamburger / close berputar halus */
+#menu-toggle-btn svg {
+  animation: iconSwap 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes iconSwap {
+  from { opacity: 0; transform: rotate(-90deg) scale(0.7); }
+  to   { opacity: 1; transform: rotate(0) scale(1); }
+}
+
+/* Logo header sedikit membesar saat di-hover */
+header button[aria-label="Ke beranda"]:hover {
+  transform: scale(1.04);
+}
+
+/* ═══════════ BUTTON HOVER ═══════════ */
+button.inline-flex:hover {
+  transform: translateY(-2px);
+}
+
+button.inline-flex:active {
+  transform: translateY(0) scale(0.98);
+}
+
+button.inline-flex svg {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+button.inline-flex:hover svg {
+  transform: translateX(5px);
+}

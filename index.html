@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>raffCo. Sweet Roastery — Kopi Arabika Single Origin, Bondowoso</title>
+  <meta name="description" content="raffCo. Sweet Roastery — Kopi Arabika Single Origin dari dataran tinggi Bondowoso, Java Ijen. Disangrai dalam batch kecil untuk karakter rasa terbaik." />
+
+  <!-- Tailwind CSS v3 CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            amber: '#FEDE58',
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+            display: ['Poppins', 'sans-serif'],
+            poppins: ['Poppins', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body class="min-h-screen bg-[#121212] text-white">
+
+  <!-- ═══════════ Header / Navbar ═══════════ -->
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#121212]/90 backdrop-blur-xl">
+    <div class="mx-auto flex h-[82px] max-w-[1440px] items-center justify-between px-5 md:px-10 lg:px-16">
+
+      <!-- Logo -->
+      <button onclick="goTo('beranda')" class="w-32 md:w-36" aria-label="Ke beranda">
+        <img src="./public/assets/logo.png" alt="raffCo. Sweet Roastery" class="block h-auto w-full object-contain" />
+      </button>
+
+      <!-- Desktop Navigation -->
+      <nav id="desktop-nav" class="nav-links" aria-label="Navigasi utama">
+        <!-- Populated by script.js -->
+      </nav>
+
+      <!-- Mobile Menu Toggle -->
+      <button id="menu-toggle-btn" onclick="toggleMobileMenu()" class="grid h-11 w-11 place-items-center border border-white/15 text-white md:hidden" aria-label="Buka menu">
+        <!-- Icon injected by script.js -->
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <nav id="mobile-nav" class="border-t border-white/10 bg-[#121212] px-5 py-5 md:hidden">
+      <!-- Populated by script.js -->
+    </nav>
+  </header>
+
+  <!-- ═══════════ Main Content ═══════════ -->
+  <main id="main-content">
+    <!-- Rendered dynamically by script.js -->
+  </main>
+
+  <!-- Script -->
+  <script src="./script.js"></script>
+</body>
+</html>
